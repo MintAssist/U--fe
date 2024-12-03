@@ -87,6 +87,15 @@ const onFinish = async () => {
 				 });
 			}
 
+			Cookies.set(accessTokenKey, accessToken, {
+				expires: 1,
+			});
+
+			Cookies.set(currentUserKey, JSON.stringify(result.data.user), {
+				expires: 1,
+			});
+
+
 			// Redirect to dashboard
 			router.push(route.query.redirect || '/dashboard');
 		} else {
